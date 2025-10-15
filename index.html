@@ -109,14 +109,6 @@
             height: 200px;
             object-fit: cover;
             border-radius: 8px;
-            background: #e9ecef;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6c757d;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 1rem;
             flex-shrink: 0;
         }
         
@@ -168,6 +160,14 @@
             color: #1e3c72;
             font-size: 1.3rem;
             font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .award-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
             margin-bottom: 1rem;
         }
         
@@ -242,6 +242,8 @@
             cursor: pointer;
             font-weight: 600;
             transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
         
         .btn:hover {
@@ -283,7 +285,7 @@
         <p>High School Portfolio | Class of 2026</p>
     </header>
     
-            <nav>
+    <nav>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#research">Research</a></li>
@@ -312,7 +314,7 @@
             <h2>Featured Research</h2>
             <div class="activity-card" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 2px solid #2a5298;">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: Research Project</div>
+                    <img src="research.jpg" alt="Research Project" class="activity-image" onerror="this.style.display='none'">
                     <div class="activity-content">
                         <div class="activity-title" style="color: #1e3c72; font-size: 1.8rem;">Climate Risk & Coastal Real Estate Research</div>
                         <div class="activity-meta" style="font-size: 1rem;">Undergraduate Research Assistant | Professor Avijit Gangopadhyay</div>
@@ -340,12 +342,12 @@
             <h2>Awards & Recognition</h2>
             <div class="awards-grid">
                 <div class="award-card">
-                    <div class="activity-image" style="width: 100%; height: 250px; margin-bottom: 1rem;">Add Photo: DECA ICDC Award</div>
+                    <img src="deca-icdc.jpg" alt="DECA ICDC Award" class="award-image" onerror="this.style.display='none'">
                     <div class="award-title">DECA ICDC - 3rd Place Globally</div>
                     <p>Financial Services Team Decision Making: Placed 3rd worldwide at International Career Development Conference among 10,000+ competitors</p>
                 </div>
                 <div class="award-card">
-                    <div class="activity-image" style="width: 100%; height: 250px; margin-bottom: 1rem;">Add Photo: ExCEL Award</div>
+                    <img src="excel-award.jpg" alt="ExCEL Award" class="award-image">
                     <div class="award-title">Minnesota State ExCEL Award</div>
                     <p>Selected as 1 of only 36 junior students statewide from over 40,000 participants, recognized for exceptional leadership and academic excellence</p>
                 </div>
@@ -373,7 +375,7 @@
             
             <div class="activity-card">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: Junior Sharks Program</div>
+                    <img src="junior-sharks.jpg" alt="Junior Sharks Program" class="activity-image">
                     <div class="activity-content">
                         <div class="activity-title">Junior Sharks - Co-founder</div>
                         <div class="activity-meta">Grades 10-12 | 5 hours/week, 41 weeks</div>
@@ -391,7 +393,7 @@
             
             <div class="activity-card">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: Young Entrepreneurs Club</div>
+                    <img src="young-entrepreneurs.jpg" alt="Young Entrepreneurs Club" class="activity-image">
                     <div class="activity-content">
                         <div class="activity-title">Young Entrepreneurs Club - Co-Founder</div>
                         <div class="activity-meta">Grades 11-12 | 3 hours/week, 20 weeks/year</div>
@@ -409,25 +411,7 @@
             
             <div class="activity-card">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: Research Project</div>
-                    <div class="activity-content">
-                        <div class="activity-title">Undergraduate Research Assistant</div>
-                        <div class="activity-meta">Grade 12 | 8 hours/week, 24 weeks | Professor Avijit Gangopadhyay</div>
-                    </div>
-                </div>
-                <div class="activity-description">
-                    <p>Co-authored academic research paper analyzing financial risks of rising sea levels on coastal real estate markets in the Middle East.</p>
-                    <ul>
-                        <li>Conducted comprehensive literature review of 20+ peer-reviewed research papers on climate impact modeling</li>
-                        <li>Collected and analyzed satellite-derived oceanographic data including sea level measurements and tidal patterns</li>
-                        <li>Developed proprietary coastal real estate valuation formula applying Multiple Linear Regression (MLR) statistical modeling</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="activity-card">
-                <div class="activity-header">
-                    <div class="activity-image">Add Photo: DECA Competition</div>
+                    <img src="deca.jpg" alt="DECA Competition" class="activity-image" onerror="this.style.display='none'">
                     <div class="activity-content">
                         <div class="activity-title">DECA - Competition Leader & Competitor</div>
                         <div class="activity-meta">Grades 10-12 | 13 hours/week, 21 weeks/year</div>
@@ -445,7 +429,7 @@
             
             <div class="activity-card">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: CLA Internship</div>
+                    <img src="cla-internship.jpg" alt="CLA Internship" class="activity-image">
                     <div class="activity-content">
                         <div class="activity-title">Finance and Accounting Intern - CliftonLarsonAllen (CLA)</div>
                         <div class="activity-meta">Grade 12 | 36 hours/week, 5 weeks (Summer)</div>
@@ -463,7 +447,7 @@
             
             <div class="activity-card">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: Bidwell Investments</div>
+                    <img src="bidwell.jpg" alt="Bidwell Investments" class="activity-image">
                     <div class="activity-content">
                         <div class="activity-title">Finance Intern - Bidwell Investments</div>
                         <div class="activity-meta">Grade 12 | 12 hours/week, 8 weeks</div>
@@ -481,7 +465,7 @@
             
             <div class="activity-card">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: Wharton Competition</div>
+                    <img src="wharton.jpg" alt="Wharton Competition" class="activity-image">
                     <div class="activity-content">
                         <div class="activity-title">Wharton Investment Competition - Team Member</div>
                         <div class="activity-meta">Grades 11-12 | 6 hours/week, 17 weeks</div>
@@ -498,7 +482,7 @@
             
             <div class="activity-card">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: FinMark Capital</div>
+                    <img src="finmark.jpg" alt="FinMark Capital" class="activity-image">
                     <div class="activity-content">
                         <div class="activity-title">Wealth Management Intern - FinMark Capital</div>
                         <div class="activity-meta">Summer after Grade 10 | 35 hours/week, 5 weeks</div>
@@ -516,7 +500,7 @@
             
             <div class="activity-card">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: Columbia Program</div>
+                    <img src="columbia.jpg" alt="Columbia Program" class="activity-image">
                     <div class="activity-content">
                         <div class="activity-title">Summer Business Program - Columbia University</div>
                         <div class="activity-meta">Grade 11 | 40 hours/week, 3 weeks</div>
@@ -533,7 +517,7 @@
             
             <div class="activity-card">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: MN Business Venture</div>
+                    <img src="mn-business-venture.jpg" alt="MN Business Venture" class="activity-image" onerror="this.style.display='none'">
                     <div class="activity-content">
                         <div class="activity-title">Minnesota Business Venture Program</div>
                         <div class="activity-meta">Grade 10 | 40 hours/week, 1 week</div>
@@ -554,7 +538,7 @@
             
             <div class="activity-card">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: Football</div>
+                    <img src="football.JPG" alt="Football" class="activity-image">
                     <div class="activity-content">
                         <div class="activity-title">Varsity Football & 7v7 Travel Team</div>
                         <div class="activity-meta">Grades 9-12 | 15+ hours/week, year-round</div>
@@ -571,7 +555,7 @@
             
             <div class="activity-card">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: Track & Field</div>
+                    <img src="track.jpg" alt="Track & Field" class="activity-image">
                     <div class="activity-content">
                         <div class="activity-title">Varsity Track and Field</div>
                         <div class="activity-meta">Grades 9-12 | 10 hours/week, 16 weeks</div>
@@ -592,7 +576,7 @@
             
             <div class="activity-card">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: Student Council</div>
+                    <img src="student-council.jpg" alt="Student Council" class="activity-image">
                     <div class="activity-content">
                         <div class="activity-title">Senior Class Representative - Student Council</div>
                         <div class="activity-meta">Grade 12 | 2 hours/week, 40 weeks/year</div>
@@ -610,7 +594,7 @@
             
             <div class="activity-card">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: Own Your October</div>
+                    <img src="own-your-october.jpg" alt="Own Your October" class="activity-image">
                     <div class="activity-content">
                         <div class="activity-title">"Own Your October" Social Awareness Campaign - Finance & Operations Lead</div>
                         <div class="activity-meta">Grade 11 | 6 hours/week, 4 weeks</div>
@@ -628,7 +612,7 @@
             
             <div class="activity-card">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: Youth Fitness</div>
+                    <img src="youth-fitness.jpg" alt="Youth Fitness" class="activity-image">
                     <div class="activity-content">
                         <div class="activity-title">Volunteer Youth Fitness Coach</div>
                         <div class="activity-meta">Grades 9-12 | 3 hours/week, 52 weeks/year</div>
@@ -645,7 +629,7 @@
             
             <div class="activity-card">
                 <div class="activity-header">
-                    <div class="activity-image">Add Photo: Photography</div>
+                    <img src="photography.jpg" alt="Photography" class="activity-image">
                     <div class="activity-content">
                         <div class="activity-title">Freelance Photographer</div>
                         <div class="activity-meta">Grades 9-12 | 1 hour/week, 52 weeks</div>
@@ -676,104 +660,4 @@
                     
                     <div>
                         <div class="upload-area" onclick="document.getElementById('research-upload').click()">
-                            <input type="file" id="research-upload" accept=".pdf,.doc,.docx" onchange="handleFileUpload(event, 'research')">
-                            <div class="upload-label">📊 Upload Research Paper</div>
-                            <div class="upload-instruction">Click to upload PDF or Word document</div>
-                        </div>
-                        <div id="research-list" class="document-list"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    
-    <footer>
-        <p>&copy; 2025 Sid Chowdhury. All rights reserved.</p>
-    </footer>
-    
-    <script>
-        const uploadedFiles = {
-            resume: null,
-            research: null
-        };
-        
-        function handleFileUpload(event, type) {
-            const file = event.target.files[0];
-            if (!file) return;
-            
-            uploadedFiles[type] = file;
-            displayFile(file, type);
-        }
-        
-        function handleFeaturedResearchUpload(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            
-            const fileUrl = URL.createObjectURL(file);
-            const displayElement = document.getElementById('featured-research-display');
-            
-            displayElement.innerHTML = `
-                <div class="document-item">
-                    <span class="document-name">${file.name}</span>
-                    <a href="${fileUrl}" download="${file.name}" class="btn">Download Research Paper</a>
-                </div>
-            `;
-        }
-        
-        function displayFile(file, type) {
-            const listId = type + '-list';
-            const listElement = document.getElementById(listId);
-            
-            const fileUrl = URL.createObjectURL(file);
-            
-            listElement.innerHTML = `
-                <div class="document-item">
-                    <span class="document-name">${file.name}</span>
-                    <a href="${fileUrl}" download="${file.name}" class="btn">Download</a>
-                </div>
-            `;
-        }
-        
-        // Smooth scrolling for navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-        
-        // Image upload functionality for activities
-        document.addEventListener('DOMContentLoaded', function() {
-            const activityImages = document.querySelectorAll('.activity-image');
-            
-            activityImages.forEach((imageDiv, index) => {
-                imageDiv.style.cursor = 'pointer';
-                imageDiv.title = 'Click to upload photo';
-                
-                imageDiv.addEventListener('click', function() {
-                    const input = document.createElement('input');
-                    input.type = 'file';
-                    input.accept = 'image/*';
-                    
-                    input.onchange = function(e) {
-                        const file = e.target.files[0];
-                        if (file && file.type.startsWith('image/')) {
-                            const reader = new FileReader();
-                            reader.onload = function(event) {
-                                imageDiv.style.backgroundImage = `url(${event.target.result})`;
-                                imageDiv.style.backgroundSize = 'cover';
-                                imageDiv.style.backgroundPosition = 'center';
-                                imageDiv.textContent = '';
-                            };
-                            reader.readAsDataURL(file);
-                        }
-                    };
-                    
-                    input.click();
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+                            <input type="file" id="research-upload" accept=".pdf,.doc,.docx
