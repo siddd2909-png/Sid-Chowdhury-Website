@@ -1,0 +1,779 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sid Chowdhury - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        nav {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 1rem;
+        }
+        
+        nav a {
+            color: #1e3c72;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #2a5298;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+        }
+        
+        h2 {
+            color: #1e3c72;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #2a5298;
+        }
+        
+        .activity-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        
+        .activity-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .activity-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .activity-content {
+            flex: 1;
+        }
+        
+        .activity-title {
+            font-size: 1.5rem;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .activity-meta {
+            color: #6c757d;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        
+        .activity-description {
+            color: #495057;
+            line-height: 1.8;
+        }
+        
+        .activity-description ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .activity-description li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .award-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .award-title {
+            color: #1e3c72;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .documents-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .document-upload {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .upload-area {
+            border: 2px dashed #2a5298;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .upload-area:hover {
+            background: #e9ecef;
+        }
+        
+        .upload-area input {
+            display: none;
+        }
+        
+        .upload-label {
+            font-size: 1.1rem;
+            color: #1e3c72;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .upload-instruction {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .document-list {
+            margin-top: 1rem;
+        }
+        
+        .document-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .document-name {
+            color: #495057;
+            font-weight: 500;
+        }
+        
+        .btn {
+            background: #1e3c72;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #2a5298;
+        }
+        
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .activity-header {
+                flex-direction: column;
+            }
+            
+            .activity-image {
+                width: 100%;
+                height: 250px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sid Chowdhury</h1>
+        <p>High School Portfolio | Class of 2026</p>
+    </header>
+    
+            <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#business">Business & Leadership</a></li>
+            <li><a href="#athletics">Athletics</a></li>
+            <li><a href="#service">Service</a></li>
+            <li><a href="#documents">Documents</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="about">
+            <div style="background: white; padding: 3rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 4rem;">
+                <h2 style="border: none; margin-bottom: 1.5rem;">About Me</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #495057; margin-bottom: 1rem;">
+                    I'm a high school senior passionate about the intersection of finance, entrepreneurship, and creating meaningful impact. From co-founding youth entrepreneurship programs that have reached 150+ students to conducting academic research on climate-driven financial risks, I thrive on solving complex problems and building solutions that make a difference.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #495057;">
+                    My experiences range from managing live investment portfolios and competing globally in DECA to mentoring young entrepreneurs and volunteering as a youth fitness coach. Whether I'm analyzing financial markets, leading student initiatives, or competing on the football field, I bring the same drive: curiosity, strategic thinking, and a commitment to excellence. I'm excited to bring this mindset to college and continue pushing boundaries in business and finance.
+                </p>
+            </div>
+        </section>
+
+        <section id="research">
+            <h2>Featured Research</h2>
+            <div class="activity-card" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 2px solid #2a5298;">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: Research Project</div>
+                    <div class="activity-content">
+                        <div class="activity-title" style="color: #1e3c72; font-size: 1.8rem;">Climate Risk & Coastal Real Estate Research</div>
+                        <div class="activity-meta" style="font-size: 1rem;">Undergraduate Research Assistant | Professor Avijit Gangopadhyay</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p style="font-size: 1.05rem; margin-bottom: 1rem;"><strong>Co-authored academic research paper analyzing financial risks of rising sea levels on coastal real estate markets in the Middle East</strong>, integrating environmental science, economics, and real estate valuation methodologies.</p>
+                    <ul>
+                        <li>Conducted comprehensive literature review of 20+ peer-reviewed research papers on climate impact modeling</li>
+                        <li>Collected and analyzed satellite-derived oceanographic data including sea level measurements and tidal patterns</li>
+                        <li>Developed proprietary coastal real estate valuation formula applying Multiple Linear Regression (MLR) statistical modeling</li>
+                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <div class="upload-area" onclick="document.getElementById('featured-research-upload').click()" style="display: inline-block; padding: 1rem 2rem; margin-top: 0;">
+                            <input type="file" id="featured-research-upload" accept=".pdf,.doc,.docx" onchange="handleFeaturedResearchUpload(event)" style="display: none;">
+                            <div class="upload-label" style="margin: 0;">📊 Upload Research Paper</div>
+                        </div>
+                        <div id="featured-research-display" style="margin-top: 1rem;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="awards">
+            <h2>Awards & Recognition</h2>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <div class="activity-image" style="width: 100%; height: 250px; margin-bottom: 1rem;">Add Photo: DECA ICDC Award</div>
+                    <div class="award-title">DECA ICDC - 3rd Place Globally</div>
+                    <p>Financial Services Team Decision Making: Placed 3rd worldwide at International Career Development Conference among 10,000+ competitors</p>
+                </div>
+                <div class="award-card">
+                    <div class="activity-image" style="width: 100%; height: 250px; margin-bottom: 1rem;">Add Photo: ExCEL Award</div>
+                    <div class="award-title">Minnesota State ExCEL Award</div>
+                    <p>Selected as 1 of only 36 junior students statewide from over 40,000 participants, recognized for exceptional leadership and academic excellence</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-title">DECA State - 3rd Place</div>
+                    <p>Financial Services Team Decision Making (FTDM)</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-title">DECA State - Top 8</div>
+                    <p>Integrated Marketing Campaign–Event (IMCE)</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-title">Top Finance Test Taker</div>
+                    <p>State-level recognition in DECA competition</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-title">Track & Field Achievement</div>
+                    <p>Top 10 All-Time Freshman 200m in school history</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="business">
+            <h2>Business & Leadership</h2>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: Junior Sharks Program</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Junior Sharks - Co-founder</div>
+                        <div class="activity-meta">Grades 10-12 | 5 hours/week, 41 weeks</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>Co-founded and scaled a district-backed youth entrepreneurship initiative from a pilot of 20 students to a multi-school program reaching 150+ students across 5 elementary and 1 middle school within three years.</p>
+                    <ul>
+                        <li>Built and implemented an 8-workshop curriculum introducing students (grades 3–8) to market research, budgeting, product design, financial planning, and pitch strategy</li>
+                        <li>Directed the annual "Shark Tank" pitch competition with over 70 student teams presenting to local Chamber of Commerce executives</li>
+                        <li>Forged partnership with Eden Prairie Chamber of Commerce, securing mentorship network of local professionals</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: Young Entrepreneurs Club</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Young Entrepreneurs Club - Co-Founder</div>
+                        <div class="activity-meta">Grades 11-12 | 3 hours/week, 20 weeks/year</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>Co-founded school's first entrepreneurship club, recruiting 70 members and building engaged community through weekly meetings focused on startup ideation and business development.</p>
+                    <ul>
+                        <li>Designed and facilitated 8 workshops covering entrepreneurial fundamentals including startup strategy and pitch development</li>
+                        <li>Conducted one-on-one mentorship with all 70 members to identify career interests and entrepreneurial goals</li>
+                        <li>Secured 9 internship placements across animation studios, engineering firms, marketing agencies, and finance companies</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: Research Project</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Undergraduate Research Assistant</div>
+                        <div class="activity-meta">Grade 12 | 8 hours/week, 24 weeks | Professor Avijit Gangopadhyay</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>Co-authored academic research paper analyzing financial risks of rising sea levels on coastal real estate markets in the Middle East.</p>
+                    <ul>
+                        <li>Conducted comprehensive literature review of 20+ peer-reviewed research papers on climate impact modeling</li>
+                        <li>Collected and analyzed satellite-derived oceanographic data including sea level measurements and tidal patterns</li>
+                        <li>Developed proprietary coastal real estate valuation formula applying Multiple Linear Regression (MLR) statistical modeling</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: DECA Competition</div>
+                    <div class="activity-content">
+                        <div class="activity-title">DECA - Competition Leader & Competitor</div>
+                        <div class="activity-meta">Grades 10-12 | 13 hours/week, 21 weeks/year</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>Achieved 3rd place globally at ICDC in Financial Services Team Decision Making, competing against top performers worldwide.</p>
+                    <ul>
+                        <li>Competition Leader responsible for preparing 200+ members for state and international competitions</li>
+                        <li>Designed data-driven test preparation strategies analyzing patterns across DECA exams</li>
+                        <li>Judged and provided feedback on 25+ individual role-play performances</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: CLA Internship</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Finance and Accounting Intern - CliftonLarsonAllen (CLA)</div>
+                        <div class="activity-meta">Grade 12 | 36 hours/week, 5 weeks (Summer)</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>Selected as 1 of 6 Minnesota interns from 150 regional applicants (4% acceptance rate) for competitive finance internship at nation's 8th-largest accounting and consulting firm.</p>
+                    <ul>
+                        <li>Rotated through Wealth Advisory, Digital/Cybersecurity, Audit, and Tax departments</li>
+                        <li>Led financial modeling and strategic planning for pro bono consulting case with Black Men Teach nonprofit</li>
+                        <li>Developed technical proficiency in Excel modeling, financial software, and audit workpaper documentation</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: Bidwell Investments</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Finance Intern - Bidwell Investments</div>
+                        <div class="activity-meta">Grade 12 | 12 hours/week, 8 weeks</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>Managed live $10,000 investment portfolio, generating 27.825% return over 3-week period through advanced technical analysis strategies.</p>
+                    <ul>
+                        <li>Applied technical trading methodologies including Bollinger Bands, Fibonacci retracements, and covered call options</li>
+                        <li>Co-authoring academic research paper examining artificial intelligence applications in financial markets</li>
+                        <li>Gained hands-on experience in portfolio management, risk assessment, and market analysis with real capital</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: Wharton Competition</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Wharton Investment Competition - Team Member</div>
+                        <div class="activity-meta">Grades 11-12 | 6 hours/week, 17 weeks</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>Led development of proprietary investment evaluation model integrating DCF valuation, CAGR, ROIC, debt-to-equity ratios, and ESG criteria.</p>
+                    <ul>
+                        <li>Designed dual-phase portfolio allocation strategy aligned with client's long-term financial objectives</li>
+                        <li>Collaborated with six-member team to conduct scenario analysis and stress testing across multiple market conditions</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: FinMark Capital</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Wealth Management Intern - FinMark Capital</div>
+                        <div class="activity-meta">Summer after Grade 10 | 35 hours/week, 5 weeks</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>Joined DFSA-regulated wealth management firm serving high net-worth clients in Dubai, contributing to client advisory operations and portfolio management.</p>
+                    <ul>
+                        <li>Developed customized investment proposals using asset allocation frameworks</li>
+                        <li>Assisted in client consultations by preparing detailed financial reports and Excel-based financial models</li>
+                        <li>Gained exposure to international wealth management practices and cross-border investment strategies</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: Columbia Program</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Summer Business Program - Columbia University</div>
+                        <div class="activity-meta">Grade 11 | 40 hours/week, 3 weeks</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>Completed competitive summer business program at Columbia University, exploring core financial principles and economic analysis.</p>
+                    <ul>
+                        <li>Collaborated on 5 comprehensive case studies analyzing corporate strategy and financial decision-making</li>
+                        <li>Developed analytical skills working alongside students from across the country in rigorous academic setting</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: MN Business Venture</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Minnesota Business Venture Program</div>
+                        <div class="activity-meta">Grade 10 | 40 hours/week, 1 week</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>Participated in statewide entrepreneurship program developing comprehensive business plans and pitching to entrepreneurs and investors.</p>
+                    <ul>
+                        <li>Led market research and competitive analysis for eco-friendly gym concept</li>
+                        <li>Presented business pitch demonstrating value proposition and growth potential</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="athletics">
+            <h2>Athletics</h2>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: Football</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Varsity Football & 7v7 Travel Team</div>
+                        <div class="activity-meta">Grades 9-12 | 15+ hours/week, year-round</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>3-year varsity football athlete at Eden Prairie High School, one of Minnesota's most competitive athletic programs.</p>
+                    <ul>
+                        <li>Selected for elite 7-on-7 travel team, competing nationally and earning multiple championship titles</li>
+                        <li>Dedicated 15+ hours weekly to year-round training including film study, strength and conditioning, and position-specific development</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: Track & Field</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Varsity Track and Field</div>
+                        <div class="activity-meta">Grades 9-12 | 10 hours/week, 16 weeks</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>4-year varsity track athlete competing in sprint events (100m, 200m, 4x100m, 4x200m) at regional and state levels.</p>
+                    <ul>
+                        <li>Ranked top 10 all-time freshman 200-meter sprinter in school history</li>
+                        <li>Placed 5th in 4x200m relay at Boys' Section Finals (2024)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="service">
+            <h2>Service & Community</h2>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: Student Council</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Senior Class Representative - Student Council</div>
+                        <div class="activity-meta">Grade 12 | 2 hours/week, 40 weeks/year</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>Elected as sole senior class representative from class of 750 students to serve on 6-member student council.</p>
+                    <ul>
+                        <li>Co-led homecoming pep fest committee for event attended by entire student body of 3,000+ students</li>
+                        <li>Managed multiple fundraising initiatives throughout the year to support class activities and school programs</li>
+                        <li>Served as liaison between senior class and school administration</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: Own Your October</div>
+                    <div class="activity-content">
+                        <div class="activity-title">"Own Your October" Social Awareness Campaign - Finance & Operations Lead</div>
+                        <div class="activity-meta">Grade 11 | 6 hours/week, 4 weeks</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>Co-created and launched school-wide social awareness campaign to build tighter-knit community and encourage student engagement.</p>
+                    <ul>
+                        <li>Designed interactive bingo card challenge featuring social activities to promote cross-grade connections</li>
+                        <li>Engaged 150 students through strategic marketing campaign</li>
+                        <li>Collaborated with principal, deans, and student council leadership to align campaign goals</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: Youth Fitness</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Volunteer Youth Fitness Coach</div>
+                        <div class="activity-meta">Grades 9-12 | 3 hours/week, 52 weeks/year</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>Founded and led year-round volunteer fitness program for 9 neighborhood youth, providing free strength training and cardiovascular conditioning.</p>
+                    <ul>
+                        <li>Designed and facilitated 90-minute training sessions twice weekly with age-appropriate workout programs</li>
+                        <li>Built tight-knit community helping youth develop discipline, goal-setting skills, and healthy lifestyle habits</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div class="activity-image">Add Photo: Photography</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Freelance Photographer</div>
+                        <div class="activity-meta">Grades 9-12 | 1 hour/week, 52 weeks</div>
+                    </div>
+                </div>
+                <div class="activity-description">
+                    <p>Provided pro bono photography services to underprivileged youth and families, ensuring access to professional-quality photos regardless of financial constraints.</p>
+                    <ul>
+                        <li>Self-taught photographer providing free engagement photography for 4 couples and sports event coverage for 15+ games</li>
+                        <li>Completed formal photography course to strengthen foundational knowledge in composition, lighting, and post-production</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="documents">
+            <h2>Documents</h2>
+            <div class="documents-section">
+                <div class="document-upload">
+                    <div>
+                        <div class="upload-area" onclick="document.getElementById('resume-upload').click()">
+                            <input type="file" id="resume-upload" accept=".pdf,.doc,.docx" onchange="handleFileUpload(event, 'resume')">
+                            <div class="upload-label">📄 Upload Expanded Resume</div>
+                            <div class="upload-instruction">Click to upload PDF or Word document</div>
+                        </div>
+                        <div id="resume-list" class="document-list"></div>
+                    </div>
+                    
+                    <div>
+                        <div class="upload-area" onclick="document.getElementById('research-upload').click()">
+                            <input type="file" id="research-upload" accept=".pdf,.doc,.docx" onchange="handleFileUpload(event, 'research')">
+                            <div class="upload-label">📊 Upload Research Paper</div>
+                            <div class="upload-instruction">Click to upload PDF or Word document</div>
+                        </div>
+                        <div id="research-list" class="document-list"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Sid Chowdhury. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        const uploadedFiles = {
+            resume: null,
+            research: null
+        };
+        
+        function handleFileUpload(event, type) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            uploadedFiles[type] = file;
+            displayFile(file, type);
+        }
+        
+        function handleFeaturedResearchUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const fileUrl = URL.createObjectURL(file);
+            const displayElement = document.getElementById('featured-research-display');
+            
+            displayElement.innerHTML = `
+                <div class="document-item">
+                    <span class="document-name">${file.name}</span>
+                    <a href="${fileUrl}" download="${file.name}" class="btn">Download Research Paper</a>
+                </div>
+            `;
+        }
+        
+        function displayFile(file, type) {
+            const listId = type + '-list';
+            const listElement = document.getElementById(listId);
+            
+            const fileUrl = URL.createObjectURL(file);
+            
+            listElement.innerHTML = `
+                <div class="document-item">
+                    <span class="document-name">${file.name}</span>
+                    <a href="${fileUrl}" download="${file.name}" class="btn">Download</a>
+                </div>
+            `;
+        }
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        
+        // Image upload functionality for activities
+        document.addEventListener('DOMContentLoaded', function() {
+            const activityImages = document.querySelectorAll('.activity-image');
+            
+            activityImages.forEach((imageDiv, index) => {
+                imageDiv.style.cursor = 'pointer';
+                imageDiv.title = 'Click to upload photo';
+                
+                imageDiv.addEventListener('click', function() {
+                    const input = document.createElement('input');
+                    input.type = 'file';
+                    input.accept = 'image/*';
+                    
+                    input.onchange = function(e) {
+                        const file = e.target.files[0];
+                        if (file && file.type.startsWith('image/')) {
+                            const reader = new FileReader();
+                            reader.onload = function(event) {
+                                imageDiv.style.backgroundImage = `url(${event.target.result})`;
+                                imageDiv.style.backgroundSize = 'cover';
+                                imageDiv.style.backgroundPosition = 'center';
+                                imageDiv.textContent = '';
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    };
+                    
+                    input.click();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
