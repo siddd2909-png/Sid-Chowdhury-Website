@@ -184,59 +184,26 @@
             gap: 1.5rem;
         }
         
-        .upload-area {
-            border: 2px dashed #2a5298;
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            background: #f8f9fa;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .upload-area:hover {
-            background: #e9ecef;
-        }
-        
-        .upload-area input {
-            display: none;
-        }
-        
-        .upload-label {
-            font-size: 1.1rem;
-            color: #1e3c72;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .upload-instruction {
-            color: #6c757d;
-            font-size: 0.9rem;
-        }
-        
-        .document-list {
-            margin-top: 1rem;
-        }
-        
         .document-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1rem;
+            padding: 1.5rem;
             background: #f8f9fa;
             border-radius: 6px;
-            margin-bottom: 0.5rem;
+            border: 2px solid #2a5298;
         }
         
         .document-name {
             color: #495057;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
         
         .btn {
             background: #1e3c72;
             color: white;
-            padding: 0.5rem 1.5rem;
+            padding: 0.75rem 1.5rem;
             border: none;
             border-radius: 6px;
             cursor: pointer;
@@ -275,6 +242,12 @@
             nav ul {
                 flex-direction: column;
                 align-items: center;
+            }
+            
+            .document-item {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
         }
     </style>
@@ -327,13 +300,6 @@
                         <li>Collected and analyzed satellite-derived oceanographic data including sea level measurements and tidal patterns</li>
                         <li>Developed proprietary coastal real estate valuation formula applying Multiple Linear Regression (MLR) statistical modeling</li>
                     </ul>
-                    <div style="margin-top: 1.5rem;">
-                        <div class="upload-area" onclick="document.getElementById('featured-research-upload').click()" style="display: inline-block; padding: 1rem 2rem; margin-top: 0;">
-                            <input type="file" id="featured-research-upload" accept=".pdf,.doc,.docx" onchange="handleFeaturedResearchUpload(event)" style="display: none;">
-                            <div class="upload-label" style="margin: 0;">📊 Upload Research Paper</div>
-                        </div>
-                        <div id="featured-research-display" style="margin-top: 1rem;"></div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -649,15 +615,33 @@
             <h2>Documents</h2>
             <div class="documents-section">
                 <div class="document-upload">
-                    <div>
-                        <div class="upload-area" onclick="document.getElementById('resume-upload').click()">
-                            <input type="file" id="resume-upload" accept=".pdf,.doc,.docx" onchange="handleFileUpload(event, 'resume')">
-                            <div class="upload-label">📄 Upload Expanded Resume</div>
-                            <div class="upload-instruction">Click to upload PDF or Word document</div>
-                        </div>
-                        <div id="resume-list" class="document-list"></div>
+                    <div class="document-item">
+                        <span class="document-name">📄 Expanded Resume</span>
+                        <a href="resume.pdf" download="Sid_Chowdhury_Resume.pdf" class="btn">Download Resume</a>
                     </div>
                     
-                    <div>
-                        <div class="upload-area" onclick="document.getElementById('research-upload').click()">
-                            <input type="file" id="research-upload" accept=".pdf,.doc,.docx
+                    <div class="document-item">
+                        <span class="document-name">📊 Research Paper - Climate Risk & Coastal Real Estate</span>
+                        <a href="research-paper.pdf" download="Sid_Chowdhury_Research_Paper.pdf" class="btn">Download Research Paper</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Sid Chowdhury. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
